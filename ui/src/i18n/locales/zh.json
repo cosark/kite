@@ -1176,7 +1176,12 @@
   },
   "aiChat": {
     "title": "AI 助手",
-    "thinking": "正在思考",
+    "thinking": {
+      "active": "正在思考",
+      "done": "已思考",
+      "done_one": "已思考 {{count}} 秒",
+      "done_other": "已思考 {{count}} 秒"
+    },
     "thoughtProcess": "思考过程",
     "running": "执行中",
     "completed": "已完成",

@@ -10,7 +10,7 @@ import {
   XCircle,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown, { type Components } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
 import { Button } from '@/components/ui/button'
@@ -33,6 +33,14 @@ import {
   buildToolPreview,
   describeAction,
 } from './ai-chat-utils'
+
+const markdownComponents: Components = {
+  table: ({ children }) => (
+    <div className="max-w-full overflow-x-auto">
+      <table>{children}</table>
+    </div>
+  ),
+}
 
 function ToolCallMessage({
   message,
@@ -409,12 +417,16 @@ function MessageBubble({
                 <AIChatThinking
                   content={message.thinking}
                   isThinking={isThinking}
+                  durationMs={message.thinkingDurationMs}
                 />
               </div>
             )}
             {hasContent && (
-              <div className="ai-markdown min-w-0 overflow-x-auto text-pretty">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              <div className="ai-markdown min-w-0 text-pretty">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={markdownComponents}
+                >
                   {message.content}
                 </ReactMarkdown>
               </div>

@@ -1168,7 +1168,12 @@
   },
   "aiChat": {
     "title": "AI Assistant",
-    "thinking": "Thinking",
+    "thinking": {
+      "active": "Thinking",
+      "done": "Thought",
+      "done_one": "Thought for {{count}} second",
+      "done_other": "Thought for {{count}} seconds"
+    },
     "thoughtProcess": "Thought process",
     "running": "Running",
     "completed": "Completed",

@@ -7,9 +7,11 @@ import './ai-chat.css'
 export function AIChatThinking({
   content,
   isThinking,
+  durationMs,
 }: {
   content?: string
   isThinking: boolean
+  durationMs?: number
 }) {
   const { t } = useTranslation()
   const traceId = useId()
@@ -29,7 +31,14 @@ export function AIChatThinking({
     <>
       <Sparkle className="size-4 shrink-0 fill-current stroke-0" />
       <span role="status" className={isThinking ? 'ai-thinking-shimmer' : ''}>
-        {t(isThinking ? 'aiChat.thinking' : 'aiChat.thoughtProcess')}
+        {isThinking
+          ? t('aiChat.thinking.active')
+          : t('aiChat.thinking.done', {
+              count:
+                durationMs === undefined
+                  ? undefined
+                  : Math.ceil(durationMs / 1000),
+            })}
       </span>
     </>
   )
