@@ -44,6 +44,10 @@ Kite is a lightweight, open-source Kubernetes workspace for multi-cluster operat
 - Inspect resources, logs, and Prometheus metrics with the built-in AI assistant.
 - Review and confirm write operations before execution; the assistant respects the current user's RBAC permissions.
 
+## One-Click Deploy
+
+<a href="https://repocloud.io/details/Kite/"><img src="https://d16t0pc4846x52.cloudfront.net/deploylobe.svg" alt="Deploy on RepoCloud" height="42"></a>
+
 ## Quick Start
 
 ### Helm
